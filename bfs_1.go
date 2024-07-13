@@ -29,7 +29,8 @@ func getIslands(grid [][]int) int {
 
 func main() {
 	grid := [][]int{
-zsh:1: command not found: :w
+		{0, 1, 0, 1},
+		{1, 1, 1, 0},
 		{0, 1, 1, 1},
 		{0, 0, 1, 0},
 	}

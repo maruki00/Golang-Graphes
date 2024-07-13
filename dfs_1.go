@@ -9,8 +9,8 @@ func getIslands(grid [][]int) int {
 		visited[i] = make([]bool, len(grid[0]))
 	}
 
-	X := []int{0,1,0,-1}
-	Y := []int{-1,0,1,0}
+	X := []int{0, 1, 0, -1}
+	Y := []int{-1, 0, 1, 0}
 
 	var dfs func(i, j int, vidited [][]bool)
 	dfs = func(i, j int, visited [][]bool) {
@@ -21,20 +21,21 @@ func getIslands(grid [][]int) int {
 		if grid[i][j] == 1 {
 			result += 1
 		}
-		for k:=0; k<4; k++{
-			dx:= i+X[k]
-			dy:= j+Y[k]
+		for k := 0; k < 4; k++ {
+			dx := i + X[k]
+			dy := j + Y[k]
 			dfs(dx, dy, visited)
 		}
 
 	}
-	bfs(0, 0, visited)
+	dfs(0, 0, visited)
 	return result
 }
 
 func main() {
 	grid := [][]int{
-zsh:1: command not found: :w
+		{0, 1, 0, 1},
+		{1, 1, 1, 0},
 		{0, 1, 1, 1},
 		{0, 0, 1, 0},
 	}
