@@ -9,11 +9,8 @@ func getIslands(grid [][]int) int {
 		visited[i] = make([]bool, len(grid[0]))
 	}
 
-	X := []int{0,1,0,-1}
-	Y := []int{-1,0,1,0}
-
-	var dfs func(i, j int, vidited [][]bool)
-	dfs = func(i, j int, visited [][]bool) {
+	var bfs func(i, j int, vidited [][]bool)
+	bfs = func(i, j int, visited [][]bool) {
 		if i >= len(grid) || i < 0 || j >= len(grid[0]) || j < 0 || visited[i][j] == true {
 			return
 		}
@@ -21,12 +18,10 @@ func getIslands(grid [][]int) int {
 		if grid[i][j] == 1 {
 			result += 1
 		}
-		for k:=0; k<4; k++{
-			dx:= i+X[k]
-			dy:= j+Y[k]
-			dfs(dx, dy, visited)
-		}
-
+		bfs(i+1, j, visited)
+		bfs(i-1, j, visited)
+		bfs(i, j+1, visited)
+		bfs(i, j-1, visited)
 	}
 	bfs(0, 0, visited)
 	return result
